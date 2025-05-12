@@ -290,24 +290,30 @@ public:
             int currTries = 0;
 
             while (currTries < MAX_ITERS) {
-                Grid randNeighbour = newNeighbor(currSol);
+                Grid bestNeighbor = newNeighbor(currSol);
+                for (int i = 0; i < 3; i++) {
+                    Grid randNeighbour = newNeighbor(currSol);
+                    if (antiFitness(randNeighbour) < antiFitness(bestNeighbor)) {
+                        bestNeighbor = randNeighbour;
+                    }
+                }
 
-                if (visited.count(randNeighbour.values) == 0) {
+                if (visited.count(bestNeighbor.values) == 0) {
                     currTries++;
 
-                    currFitness = antiFitness(randNeighbour);
-                    currSol = randNeighbour;
-                    visited.insert(randNeighbour.values);
+                    currFitness = antiFitness(bestNeighbor);
+                    currSol = bestNeighbor;
+                    visited.insert(bestNeighbor.values);
 
                     if (currFitness < minFitness && currFitness != 0) {
                         minFitness = currFitness;
-                        solution = randNeighbour;
+                        solution = bestNeighbor;
                         cout << "\n\nNove fitness minimum: " << minFitness << ", Poradi pokusu: " << attempts + currTries << endl;
                         solution.print();
                     }
 
-                    if (currFitness == 0 && isCorrectSudoku(randNeighbour)) {
-                        solution = randNeighbour;
+                    if (currFitness == 0 && isCorrectSudoku(bestNeighbor)) {
+                        solution = bestNeighbor;
                         solved = true;
                         attempts += currTries;
                         return;
@@ -372,7 +378,7 @@ int main() {
                 grid = Grid(in16hard);
                 break;
             default:
-                std::cout << "Spatny vstup" << std::endl;
+                cout << "Spatny vstup" << endl;
                 return 0;
         }
     } else if (dim == 4) {
