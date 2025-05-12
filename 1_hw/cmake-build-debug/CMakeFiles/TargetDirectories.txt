@@ -1,3 +1,0 @@
-/home/jana/jana/skola/zum/1_hw/cmake-build-debug/CMakeFiles/1_hw.dir
-/home/jana/jana/skola/zum/1_hw/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jana/jana/skola/zum/1_hw/cmake-build-debug/CMakeFiles/rebuild_cache.dir
