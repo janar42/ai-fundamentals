@@ -1,0 +1,45 @@
+====================================================
+Template for solving the Travelling Salesman Problem
+====================================================
+
+
+AUTHOR
+======
+
+Ladislava Smítková Janků
+e-mail: ladislava.smitkova@fit.cvut.cz
+
+Czech Technical University in Prague
+Faculty of Information Technology
+
+February 2021
+
+
+LICENSE
+=======
+
+This code is a free and open-source software for education purposes.
+For commercial use you need a commercial license.
+
+
+BUILD
+=====
+
+make clean
+make
+
+
+RUN
+===
+
+./bi-zum-salesman
+
+Please run this application without arguments for get help.
+
+
+EXAMPLES
+========
+
+./bi-zum-salesman data/distances-10.csv bruteforce
+./bi-zum-salesman data/distances-18.csv genetic-pmx
+./bi-zum-salesman data/distances-18.csv genetic-ox
